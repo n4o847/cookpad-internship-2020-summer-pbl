@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import './App.css';
+import Home from './pages/Home';
 import User from './pages/User';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/users/:id" component={User} />
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   );
