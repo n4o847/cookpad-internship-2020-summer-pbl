@@ -1,17 +1,30 @@
 # cookpad-internship-2020-summer-pbl
 
-## 開発サーバー起動
 
-### クライアント
+## クライアント
+
+### 開発サーバー起動
 
 ```
-cd client
 npm start
 ```
 
-### サーバー
+## サーバー
+
+### 開発サーバー起動
 
 ```
-cd server
 bundle exec rails s -p 3001
+```
+
+### スキーマ適用
+
+```
+rails ridgepole:apply
+```
+
+### 初期データ生成
+
+```
+rails db:seed
 ```
