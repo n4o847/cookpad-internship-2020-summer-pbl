@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   scope '/api' do
     get '/hello', to: 'application#hello'
     resources :users
+    resources :recipes
   end
 end

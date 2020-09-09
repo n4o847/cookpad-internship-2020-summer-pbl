@@ -7,9 +7,29 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Recipe.destroy_all
 
-User.create([
-  { name: 'くらげ' },
-  { name: 'うに' },
-  { name: 'いか' }
-])
+users = []
+
+%w[
+  くらげ
+  うに
+  いか
+].each do |name|
+  users << User.create(
+    name: name
+  )
+end
+
+%w[
+  肉じゃが
+  牛丼
+  カレー
+  オムレツ
+  ハンバーグ
+].each do |title|
+  Recipe.create(
+    title: title,
+    description: "#{title}を作ったよ"
+  )
+end
