@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [text, setText] = useState(null);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('//localhost:3001/api/hello');
+      const { text } = await response.json();
+      setText(text);
+    })();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Response: <code>{text}</code>
         </p>
         <a
           className="App-link"
