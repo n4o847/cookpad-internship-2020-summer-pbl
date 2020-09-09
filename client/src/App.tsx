@@ -1,34 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import './App.css';
+import User from './pages/User';
 
 function App() {
-  const [text, setText] = useState(null);
   useEffect(() => {
     (async () => {
+      console.log('Fetching /api/hello');
       const response = await fetch('//localhost:3001/api/hello');
-      const { text } = await response.json();
-      setText(text);
+      const data = await response.json();
+      console.log(data);
     })();
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Response: <code>{text}</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/users/:id" component={User} />
+      </Switch>
+    </Router>
   );
 }
 
