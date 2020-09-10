@@ -8,20 +8,21 @@ interface Params {
 
 interface Props extends RouteComponentProps<Params> {}
 
-function User({ match }: Props) {
-  const [user, setUser] = useState<api.User | null>(null);
+function Recipe({ match }: Props) {
+  const [recipe, setRecipe] = useState<api.Recipe | null>(null);
   useEffect(() => {
     (async () => {
-      const user = await api.getUser(match.params.id);
-      setUser(user);
+      const recipe = await api.getRecipe(match.params.id);
+      setRecipe(recipe);
     })();
   }, [match.params.id]);
 
   return (
     <div>
-      <h1>{user?.name}</h1>
+      <h1>{recipe?.title}</h1>
+      <p>{recipe?.description}</p>
     </div>
   );
 }
 
-export default User;
+export default Recipe;

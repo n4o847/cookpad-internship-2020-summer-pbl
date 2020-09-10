@@ -8,12 +8,12 @@ import './App.css';
 import Home from './pages/Home';
 import User from './pages/User';
 import * as api from './api';
+import Recipe from './pages/Recipe';
 
 function App() {
   useEffect(() => {
     (async () => {
-      const data = await api.getHello();
-      console.log(data);
+      await api.getHello();
     })();
   }, []);
 
@@ -21,6 +21,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/users/:id" component={User} />
+        <Route path="/recipes/:id" component={Recipe} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>

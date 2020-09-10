@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as api from '../api';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [recipes, setRecipes] = useState<api.Recipe[] | null>(null);
@@ -16,7 +17,7 @@ function Home() {
         {
           recipes?.map((recipe) => (
             <React.Fragment key={recipe.id}>
-              <dt>{recipe.title}</dt>
+              <dt><Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link></dt>
               <dd>{recipe.description}</dd>
             </React.Fragment>
           ))
