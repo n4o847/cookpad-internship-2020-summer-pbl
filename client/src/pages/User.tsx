@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import * as api from '../api';
 
 interface Params {
@@ -24,7 +24,7 @@ function User({ match }: Props) {
         {
           user?.tags.map((tag) => (
             <React.Fragment key={tag.id}>
-              <span>#{tag.name}</span>
+              <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
               {" "}
             </React.Fragment>
           ))

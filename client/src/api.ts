@@ -17,6 +17,11 @@ export interface Tag {
   name: string;
 }
 
+export interface DetailedTag extends Tag {
+  users: User[];
+  recipes: Recipe[];
+}
+
 async function get<T>(endpoint: string): Promise<T> {
   console.log(`Fetching ${endpoint}`);
   const response = await fetch(`//localhost:3001${endpoint}`);
@@ -34,3 +39,5 @@ export const getUser = (id: string) => get<User>(`/api/users/${id}`);
 export const getRecipes = () => get<Recipe[]>(`/api/recipes`);
 
 export const getRecipe = (id: string) => get<Recipe>(`/api/recipes/${id}`);
+
+export const getTag = (id: string) => get<DetailedTag>(`/api/tags/${id}`);

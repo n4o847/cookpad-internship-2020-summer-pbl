@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/hello', to: 'application#hello'
     resources :users
     resources :recipes
+    resources :tags
     resources :images, only: %w[show]
   end
 end
