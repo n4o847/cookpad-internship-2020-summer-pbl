@@ -44,4 +44,6 @@ export const getRecipes = () => get<Recipe[]>(`/api/recipes`);
 
 export const getRecipe = (id: string) => get<Recipe>(`/api/recipes/${id}`);
 
+export const getTags = () => get<Tag[]>(`/api/tags`);
+
 export const getTag = (id: string) => get<TagWithUsersAndRecipes>(`/api/tags/${id}`);

@@ -8,7 +8,9 @@ import './App.css';
 import Home from './pages/Home';
 import User from './pages/User';
 import Recipe from './pages/Recipe';
+import Tags from './pages/Tags';
 import Tag from './pages/Tag';
+import Header from './components/Header';
 import * as api from './api';
 
 function App() {
@@ -20,10 +22,12 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <Switch>
         <Route path="/users/:id" component={User} />
         <Route path="/recipes/:id" component={Recipe} />
         <Route path="/tags/:id" component={Tag} />
+        <Route path="/tags" component={Tags} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>

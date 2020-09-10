@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import Recipes from '../components/Recipes';
 import * as api from '../api';
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Recipes from '../components/Recipes';
 import * as api from '../api';
 
@@ -13,7 +12,7 @@ function Home() {
   }, []);
   return (
     <div>
-      <h1>Home</h1>
+      <h1>みんなのレシピ</h1>
       <Recipes recipes={recipes}/>
     </div>
   );
