@@ -7,13 +7,12 @@ import {
 import './App.css';
 import Home from './pages/Home';
 import User from './pages/User';
+import * as api from './api';
 
 function App() {
   useEffect(() => {
     (async () => {
-      console.log('Fetching /api/hello');
-      const response = await fetch('//localhost:3001/api/hello');
-      const data = await response.json();
+      const data = await api.getHello();
       console.log(data);
     })();
   }, []);

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-
-interface User {
-  id: number;
-  name: string;
-}
+import * as api from '../api';
 
 interface Params {
   id: string;
@@ -13,12 +9,10 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 function User({ match }: Props) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<api.User | null>(null);
   useEffect(() => {
     (async () => {
-      console.log(`Fetching /api/users/${match.params.id}`);
-      const response = await fetch(`//localhost:3001/api/users/${match.params.id}`);
-      const user = await response.json();
+      const user = await api.getUser(match.params.id);
       console.log(user);
       setUser(user);
     })();
