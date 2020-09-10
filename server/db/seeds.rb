@@ -22,6 +22,12 @@ tags = []
   登山
   キャンプ
   釣り
+  サーフィン
+  コスプレ
+  サイクリング
+  ヨガ
+  ドライブ
+  バスケ
 ].each do |name|
   tags << Tag.create!(
     name: name
@@ -34,6 +40,10 @@ users = []
   くらげ
   うに
   いか
+  まぐろ
+  えび
+  ひとで
+  くりおね
 ].each do |name|
   users << User.create!(
     name: name,
