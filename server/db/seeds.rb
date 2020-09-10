@@ -76,14 +76,15 @@ end
   food_spaghetti_carbonara.png カルボナーラ
 ].each_slice(2).to_a).sample(20).each do |adjective, (filename, name)|
   title = adjective + name
+  user = users.sample
   image = Image.create!(
     filename: filename,
     body: File.binread(Rails.root.join("test/fixtures/files/#{filename}"))
   )
   Recipe.create!(
     title: title,
-    description: "#{title}を作ったよ",
-    user: users.sample,
+    description: "#{user.tags.sample.name}にぴったりな、#{title}を作ったよ",
+    user: user,
     image: image
   )
 end
