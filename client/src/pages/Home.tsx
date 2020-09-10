@@ -17,7 +17,11 @@ function Home() {
         {
           recipes?.map((recipe) => (
             <React.Fragment key={recipe.id}>
-              <dt><Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link></dt>
+              <dt>
+                <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+                {' by '}
+                <Link to={`/users/${recipe.user.id}`}>{recipe.user.name}</Link>
+              </dt>
               <dd>{recipe.description}</dd>
             </React.Fragment>
           ))

@@ -7,6 +7,7 @@ export interface Recipe {
   id: number;
   title: string;
   description: string;
+  user: User;
 }
 
 async function get<T>(endpoint: string): Promise<T> {

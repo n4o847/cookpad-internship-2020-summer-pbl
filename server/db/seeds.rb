@@ -28,8 +28,10 @@ end
   オムレツ
   ハンバーグ
 ].each do |title|
+  user = users.sample
   Recipe.create(
     title: title,
-    description: "#{title}を作ったよ"
+    description: "#{title}を作ったよ",
+    user_id: user.id
   )
 end
