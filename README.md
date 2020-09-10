@@ -14,7 +14,7 @@ npm start
 ### 開発サーバー起動
 
 ```
-bundle exec rails s -p 3001
+rails s -p 3001
 ```
 
 ### スキーマ適用
