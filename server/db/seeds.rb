@@ -9,6 +9,7 @@
 User.destroy_all
 Recipe.destroy_all
 Tag.destroy_all
+Image.destroy_all
 
 tags = []
 
@@ -51,11 +52,6 @@ users = []
   )
 end
 
-image = Image.create!(
-  filename: 'food_jelly_fry.png',
-  body: File.binread(Rails.root.join('test/fixtures/files/food_jelly_fry.png'))
-)
-
 %w[
   あったか～い
   つめた～い
@@ -64,17 +60,21 @@ image = Image.create!(
   すっぱ～い
   から～い
 ].product(%w[
-  肉じゃが
-  牛丼
-  カレー
-  オムレツ
-  ハンバーグ
-  餃子
-  お好み焼き
-  生姜焼き
-  パスタ
-]).sample(20).each do |adjective, name|
+  bousai_nikujaga.png          肉じゃが
+  food_gyudon.png              牛丼
+  food_curryrice_white.png     カレー
+  food_omelet.png              オムレツ
+  food_hamburg.png             ハンバーグ
+  food_gyouza.png              餃子
+  omatsuri_okonomiyaki.png     お好み焼き
+  food_syougayaki.png          生姜焼き
+  food_spaghetti_carbonara.png カルボナーラ
+].each_slice(2).to_a).sample(20).each do |adjective, (filename, name)|
   title = adjective + name
+  image = Image.create!(
+    filename: filename,
+    body: File.binread(Rails.root.join("test/fixtures/files/#{filename}"))
+  )
   Recipe.create!(
     title: title,
     description: "#{title}を作ったよ",
