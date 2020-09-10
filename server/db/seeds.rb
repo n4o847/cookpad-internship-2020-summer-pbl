@@ -59,6 +59,11 @@ end
   あま～い
   すっぱ～い
   から～い
+  すぐにつくれる
+  絶対に失敗しない
+  片手で食べられる
+  移動中に食べられる
+  栄養たっぷり
 ].product(%w[
   bousai_nikujaga.png          肉じゃが
   food_gyudon.png              牛丼
