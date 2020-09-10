@@ -8,6 +8,25 @@
 
 User.destroy_all
 Recipe.destroy_all
+Tag.destroy_all
+
+tags = []
+
+%w[
+  プログラミング
+  フットサル
+  筋トレ
+  漫画家
+  ボルダリング
+  eスポーツ
+  登山
+  キャンプ
+  釣り
+].each do |name|
+  tags << Tag.create!(
+    name: name
+  )
+end
 
 users = []
 
@@ -16,8 +35,9 @@ users = []
   うに
   いか
 ].each do |name|
-  users << User.create(
-    name: name
+  users << User.create!(
+    name: name,
+    tags: tags.sample(rand(1..4))
   )
 end
 
@@ -28,10 +48,9 @@ end
   オムレツ
   ハンバーグ
 ].each do |title|
-  user = users.sample
-  Recipe.create(
+  Recipe.create!(
     title: title,
     description: "#{title}を作ったよ",
-    user_id: user.id
+    user: users.sample
   )
 end
