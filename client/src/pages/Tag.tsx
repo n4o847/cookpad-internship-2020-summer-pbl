@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import Recipes from '../components/Recipes';
 import * as api from '../api';
 
 interface Params {
@@ -9,7 +10,7 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 function Tag({ match }: Props) {
-  const [tag, setTag] = useState<api.DetailedTag | null>(null);
+  const [tag, setTag] = useState<api.TagWithUsersAndRecipes>();
   useEffect(() => {
     (async () => {
       const tag = await api.getTag(match.params.id);
@@ -20,29 +21,7 @@ function Tag({ match }: Props) {
   return (
     <div>
       <h1>#{tag?.name}</h1>
-      <dl>
-        {
-          tag?.recipes.map((recipe) => (
-            <React.Fragment key={recipe.id}>
-              <dt>
-                <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
-                {' by '}
-                <Link to={`/users/${recipe.user.id}`}>{recipe.user.name}</Link>
-              </dt>
-              <dd>
-                <p>{recipe.description}</p>
-                {typeof recipe.image_id === 'number' && (
-                  <img
-                    src={`//localhost:3001/api/images/${recipe.image_id}`}
-                    alt={recipe.title}
-                    className="recipe-image"
-                  />
-                )}
-              </dd>
-            </React.Fragment>
-          ))
-        }
-      </dl>
+      <Recipes recipes={tag?.recipes} />
     </div>
   );
 }

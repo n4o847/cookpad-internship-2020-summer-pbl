@@ -4,6 +4,10 @@ export interface User {
   tags: Tag[];
 }
 
+export interface UserWithRecipes extends User {
+  recipes: Recipe[];
+}
+
 export interface Recipe {
   id: number;
   title: string;
@@ -17,7 +21,7 @@ export interface Tag {
   name: string;
 }
 
-export interface DetailedTag extends Tag {
+export interface TagWithUsersAndRecipes extends Tag {
   users: User[];
   recipes: Recipe[];
 }
@@ -34,10 +38,10 @@ export const getHello = () => get<any>(`/api/hello`);
 
 export const getUsers = () => get<User[]>(`/api/users`);
 
-export const getUser = (id: string) => get<User>(`/api/users/${id}`);
+export const getUser = (id: string) => get<UserWithRecipes>(`/api/users/${id}`);
 
 export const getRecipes = () => get<Recipe[]>(`/api/recipes`);
 
 export const getRecipe = (id: string) => get<Recipe>(`/api/recipes/${id}`);
 
-export const getTag = (id: string) => get<DetailedTag>(`/api/tags/${id}`);
+export const getTag = (id: string) => get<TagWithUsersAndRecipes>(`/api/tags/${id}`);

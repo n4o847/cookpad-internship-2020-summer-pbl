@@ -9,7 +9,7 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 function Recipe({ match }: Props) {
-  const [recipe, setRecipe] = useState<api.Recipe | null>(null);
+  const [recipe, setRecipe] = useState<api.Recipe>();
   useEffect(() => {
     (async () => {
       const recipe = await api.getRecipe(match.params.id);

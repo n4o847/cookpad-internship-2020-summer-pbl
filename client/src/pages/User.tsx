@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import Recipes from '../components/Recipes';
 import * as api from '../api';
 
 interface Params {
@@ -9,7 +10,7 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 function User({ match }: Props) {
-  const [user, setUser] = useState<api.User | null>(null);
+  const [user, setUser] = useState<api.UserWithRecipes>();
   useEffect(() => {
     (async () => {
       const user = await api.getUser(match.params.id);
@@ -30,6 +31,7 @@ function User({ match }: Props) {
           ))
         }
       </p>
+      <Recipes recipes={user?.recipes} />
     </div>
   );
 }
