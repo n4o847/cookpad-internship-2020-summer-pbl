@@ -20,6 +20,16 @@ function Recipe({ match }: Props) {
   return (
     <div>
       <h1>{recipe?.title}</h1>
+      <p>
+        {
+          recipe?.tags.map((tag) => (
+            <React.Fragment key={tag.id}>
+              <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+              {" "}
+            </React.Fragment>
+          ))
+        }
+      </p>
       <p>{recipe?.description}</p>
       <p>
         {' by '}

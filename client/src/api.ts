@@ -14,6 +14,7 @@ export interface Recipe {
   description: string;
   user: User;
   image_id: number | null;
+  tags: Tag[];
 }
 
 export interface Tag {

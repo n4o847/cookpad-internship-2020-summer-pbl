@@ -26,6 +26,16 @@ function Recipes({ recipes }: Props) {
                   className="recipe-image"
                 />
               )}
+              <p>
+                {
+                  recipe.tags.map((tag) => (
+                    <React.Fragment key={tag.id}>
+                      <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+                      {" "}
+                    </React.Fragment>
+                  ))
+                }
+              </p>
             </dd>
           </React.Fragment>
         ))

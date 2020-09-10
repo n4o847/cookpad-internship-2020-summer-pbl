@@ -81,10 +81,12 @@ end
     filename: filename,
     body: File.binread(Rails.root.join("test/fixtures/files/#{filename}"))
   )
+  tags = user.tags.sample(1)
   Recipe.create!(
     title: title,
-    description: "#{user.tags.sample.name}にぴったりな、#{title}を作ったよ",
+    description: "#{tags.first.name}にぴったりな、#{title}を作ったよ",
     user: user,
-    image: image
+    image: image,
+    tags: tags
   )
 end
