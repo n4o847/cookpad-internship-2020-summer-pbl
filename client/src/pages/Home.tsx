@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as api from '../api';
-import './Home.css';
 
 function Home() {
   const [recipes, setRecipes] = useState<api.Recipe[] | null>(null);

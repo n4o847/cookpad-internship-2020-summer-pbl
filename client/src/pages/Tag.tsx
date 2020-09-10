@@ -22,7 +22,7 @@ function Tag({ match }: Props) {
       <h1>#{tag?.name}</h1>
       <dl>
         {
-          tag?.recipes?.map((recipe) => (
+          tag?.recipes.map((recipe) => (
             <React.Fragment key={recipe.id}>
               <dt>
                 <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
