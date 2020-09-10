@@ -41,6 +41,11 @@ users = []
   )
 end
 
+image = Image.create!(
+  filename: 'food_jelly_fry.png',
+  body: File.binread(Rails.root.join('test/fixtures/files/food_jelly_fry.png'))
+)
+
 %w[
   肉じゃが
   牛丼
@@ -51,6 +56,7 @@ end
   Recipe.create!(
     title: title,
     description: "#{title}を作ったよ",
-    user: users.sample
+    user: users.sample,
+    image: image
   )
 end

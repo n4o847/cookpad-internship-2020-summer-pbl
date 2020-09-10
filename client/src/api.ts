@@ -9,6 +9,7 @@ export interface Recipe {
   title: string;
   description: string;
   user: User;
+  image_id: number | null;
 }
 
 export interface Tag {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import * as api from '../api';
 import { Link } from 'react-router-dom';
+import * as api from '../api';
+import './Home.css';
 
 function Home() {
   const [recipes, setRecipes] = useState<api.Recipe[] | null>(null);
@@ -22,7 +23,16 @@ function Home() {
                 {' by '}
                 <Link to={`/users/${recipe.user.id}`}>{recipe.user.name}</Link>
               </dt>
-              <dd>{recipe.description}</dd>
+              <dd>
+                <p>{recipe.description}</p>
+                {typeof recipe.image_id === 'number' && (
+                  <img
+                    src={`//localhost:3001/api/images/${recipe.image_id}`}
+                    alt={recipe.title}
+                    className="recipe-image"
+                  />
+                )}
+              </dd>
             </React.Fragment>
           ))
         }
