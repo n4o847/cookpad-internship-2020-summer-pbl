@@ -20,6 +20,16 @@ function User({ match }: Props) {
   return (
     <div>
       <h1>{user?.name}</h1>
+      <p>
+        {
+          user?.tags.map((tag) => (
+            <React.Fragment key={tag.id}>
+              <span>#{tag.name}</span>
+              {" "}
+            </React.Fragment>
+          ))
+        }
+      </p>
     </div>
   );
 }

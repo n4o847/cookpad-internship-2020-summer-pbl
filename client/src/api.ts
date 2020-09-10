@@ -1,6 +1,7 @@
 export interface User {
   id: number;
   name: string;
+  tags: Tag[];
 }
 
 export interface Recipe {
@@ -8,6 +9,11 @@ export interface Recipe {
   title: string;
   description: string;
   user: User;
+}
+
+export interface Tag {
+  id: number;
+  name: string;
 }
 
 async function get<T>(endpoint: string): Promise<T> {
