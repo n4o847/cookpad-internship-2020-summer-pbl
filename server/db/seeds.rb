@@ -47,12 +47,24 @@ image = Image.create!(
 )
 
 %w[
+  あったか～い
+  つめた～い
+  やわらか～い
+  あま～い
+  すっぱ～い
+  から～い
+].product(%w[
   肉じゃが
   牛丼
   カレー
   オムレツ
   ハンバーグ
-].each do |title|
+  餃子
+  お好み焼き
+  生姜焼き
+  パスタ
+]).sample(20).each do |adjective, name|
+  title = adjective + name
   Recipe.create!(
     title: title,
     description: "#{title}を作ったよ",
