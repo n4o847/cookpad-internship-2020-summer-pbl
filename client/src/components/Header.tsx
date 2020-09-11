@@ -14,7 +14,7 @@ function Header() {
     <div className="header">
       <div className="header-bar">
         <div className="header-title">
-          {"タイトル"}
+          hashme
         </div>
         <div className="header-button">
           <FontAwesomeIcon icon={faBars} />
