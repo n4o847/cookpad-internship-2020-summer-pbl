@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Recipes from '../components/Recipes';
 import * as api from '../api';
+import shuffle from 'lodash/shuffle';
 
 function Home() {
   const [recipes, setRecipes] = useState<api.Recipe[]>();
   useEffect(() => {
     (async () => {
-      const recipes = await api.getRecipes();
+      let recipes = await api.getRecipes();
+      recipes = shuffle(recipes);
       setRecipes(recipes);
     })();
   }, []);
