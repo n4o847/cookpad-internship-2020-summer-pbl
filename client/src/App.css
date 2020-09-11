@@ -55,6 +55,11 @@
 
 .recipe-item {
   border-bottom: 1px solid #eeeeee;
+  border: 1px solid #eeeeee;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.05);
 }
 
 .recipe-item-tagged {
