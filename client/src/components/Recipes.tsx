@@ -4,14 +4,15 @@ import * as api from '../api';
 
 interface Props {
   recipes?: api.Recipe[];
+  keyTag?: api.Tag;
 }
 
-function Recipes({ recipes }: Props) {
+function Recipes({ recipes, keyTag }: Props) {
   return (
-    <dl className="recipe-list">
+    <div className="recipe-list">
       {
         recipes?.map((recipe) => (
-          <React.Fragment key={recipe.id}>
+          <dl key={recipe.id} className={keyTag && recipe.tags.some(({ id }) => id === keyTag.id) ? 'recipe-item-tagged' : ''}>
             <dt>
               <Link to={`/recipes/${recipe.id}`} className="recipe-title">{recipe.title}</Link>
               {' by '}
@@ -32,17 +33,17 @@ function Recipes({ recipes }: Props) {
                 {
                   recipe.tags.map((tag) => (
                     <React.Fragment key={tag.id}>
-                      <Link to={`/tags/${tag.id}`} className="tag">#{tag.name}</Link>
+                      <Link to={`/tags/${tag.id}`} className={['tag', ...(keyTag && tag.id === keyTag.id ? ['key-tag'] : [])].join(' ')}>#{tag.name}</Link>
                       {" "}
                     </React.Fragment>
                   ))
                 }
               </p>
             </dd>
-          </React.Fragment>
+          </dl>
         ))
       }
-    </dl>
+    </div>
   );
 }
 

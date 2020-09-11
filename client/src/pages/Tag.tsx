@@ -21,7 +21,7 @@ function Tag({ match }: Props) {
   return (
     <div className="content">
       <h1>#{tag?.name}</h1>
-      <Recipes recipes={tag?.recipes} />
+      <Recipes recipes={tag?.recipes} keyTag={tag}/>
     </div>
   );
 }
