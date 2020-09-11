@@ -1,6 +1,9 @@
 export interface User {
   id: number;
   name: string;
+  profile: string;
+  following: number;
+  followers: number;
   tags: Tag[];
 }
 

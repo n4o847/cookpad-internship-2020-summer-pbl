@@ -22,6 +22,12 @@ function User({ match }: Props) {
     <div className="content">
       <h1>{user?.name}</h1>
       <p>
+        {user?.following} <small>フォロー</small>
+        {' '}
+        {user?.followers} <small>フォロワー</small>
+      </p>
+      <p>{user?.profile}</p>
+      <p>
         {
           user?.tags.map((tag) => (
             <React.Fragment key={tag.id}>

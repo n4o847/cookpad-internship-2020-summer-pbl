@@ -53,9 +53,13 @@ users = []
   はぜ
   さんご
 ].each do |name|
+  user_tags = tags.sample(rand(1..4))
   users << User.create!(
     name: name,
-    tags: tags.sample(rand(1..4))
+    profile: "#{user_tags.pluck(:name).join('と')}が好きです。",
+    tags: user_tags,
+    following: rand(0..999),
+    followers: rand(0..999)
   )
 end
 
