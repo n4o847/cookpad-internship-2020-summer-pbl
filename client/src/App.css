@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   color: #2b2a27;
 }
@@ -8,6 +12,10 @@
 
 .content {
   padding: 0px 10px;
+}
+
+.recipe-item {
+  border-bottom: 1px solid #eeeeee;
 }
 
 .recipe-item-tagged {
@@ -45,4 +53,10 @@
 
 .key-tag {
   font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+  font-size: 1rem;
 }

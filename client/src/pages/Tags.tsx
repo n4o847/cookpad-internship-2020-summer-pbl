@@ -13,6 +13,9 @@ function Tags() {
   return (
     <div className="content">
       <h1>見つける</h1>
+      <p>
+        <input type="text" className="input" />
+      </p>
       <dl>
         {
           tags?.map((tag) => (

@@ -12,7 +12,10 @@ function Recipes({ recipes, keyTag }: Props) {
     <div className="recipe-list">
       {
         recipes?.map((recipe) => (
-          <dl key={recipe.id} className={keyTag && recipe.tags.some(({ id }) => id === keyTag.id) ? 'recipe-item-tagged' : ''}>
+          <dl
+            key={recipe.id}
+            className={['recipe-item', ...(keyTag && recipe.tags.some(({ id }) => id === keyTag.id) ? ['recipe-item-tagged'] : [])].join(' ')}
+          >
             <dt>
               <Link to={`/recipes/${recipe.id}`} className="recipe-title">{recipe.title}</Link>
               {' by '}
@@ -33,7 +36,12 @@ function Recipes({ recipes, keyTag }: Props) {
                 {
                   recipe.tags.map((tag) => (
                     <React.Fragment key={tag.id}>
-                      <Link to={`/tags/${tag.id}`} className={['tag', ...(keyTag && tag.id === keyTag.id ? ['key-tag'] : [])].join(' ')}>#{tag.name}</Link>
+                      <Link
+                        to={`/tags/${tag.id}`}
+                        className={['tag', ...(keyTag && tag.id === keyTag.id ? ['key-tag'] : [])].join(' ')}
+                      >
+                        #{tag.name}
+                      </Link>
                       {" "}
                     </React.Fragment>
                   ))
