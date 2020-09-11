@@ -19,13 +19,13 @@ function User({ match }: Props) {
   }, [match.params.id]);
 
   return (
-    <div>
+    <div className="content">
       <h1>{user?.name}</h1>
       <p>
         {
           user?.tags.map((tag) => (
             <React.Fragment key={tag.id}>
-              <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+              <Link to={`/tags/${tag.id}`} className="tag">#{tag.name}</Link>
               {" "}
             </React.Fragment>
           ))

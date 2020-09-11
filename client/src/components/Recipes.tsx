@@ -8,29 +8,31 @@ interface Props {
 
 function Recipes({ recipes }: Props) {
   return (
-    <dl>
+    <dl className="recipe-list">
       {
         recipes?.map((recipe) => (
           <React.Fragment key={recipe.id}>
             <dt>
-              <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+              <Link to={`/recipes/${recipe.id}`} className="recipe-title">{recipe.title}</Link>
               {' by '}
               <Link to={`/users/${recipe.user.id}`}>{recipe.user.name}</Link>
             </dt>
             <dd>
               <p>{recipe.description}</p>
               {typeof recipe.image_id === 'number' && (
-                <img
-                  src={`//localhost:3001/api/images/${recipe.image_id}`}
-                  alt={recipe.title}
-                  className="recipe-image"
-                />
+                <Link to={`/recipes/${recipe.id}`}>
+                  <img
+                    src={`//localhost:3001/api/images/${recipe.image_id}`}
+                    alt={recipe.title}
+                    className="recipe-image"
+                  />
+                </Link>
               )}
               <p>
                 {
                   recipe.tags.map((tag) => (
                     <React.Fragment key={tag.id}>
-                      <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+                      <Link to={`/tags/${tag.id}`} className="tag">#{tag.name}</Link>
                       {" "}
                     </React.Fragment>
                   ))

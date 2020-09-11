@@ -1,3 +1,22 @@
+:root {
+  color: #2b2a27;
+}
+
+.header {
+  padding: 10px 5px;
+}
+
+.content {
+  padding: 0px 10px;
+}
+
+.recipe-title {
+  color: #7d940a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* text-decoration: none; */
+}
+
 .recipe-image {
   max-width: 400px;
   width: 100%;
@@ -5,4 +24,17 @@
   height: 56.25%;
   object-fit: cover;
   background-color: #f7f3e8;
+  border-radius: 10px;
+}
+
+.tag {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  padding: 0px 10px;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  color: #333333;
+  font-size: 0.8rem;
+  text-decoration: none;
 }

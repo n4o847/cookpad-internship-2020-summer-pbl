@@ -19,7 +19,7 @@ function Tag({ match }: Props) {
   }, [match.params.id]);
 
   return (
-    <div>
+    <div className="content">
       <h1>#{tag?.name}</h1>
       <Recipes recipes={tag?.recipes} />
     </div>

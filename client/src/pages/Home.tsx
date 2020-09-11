@@ -11,7 +11,7 @@ function Home() {
     })();
   }, []);
   return (
-    <div>
+    <div className="content">
       <h1>みんなのレシピ</h1>
       <Recipes recipes={recipes}/>
     </div>

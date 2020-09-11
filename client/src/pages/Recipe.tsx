@@ -18,13 +18,13 @@ function Recipe({ match }: Props) {
   }, [match.params.id]);
 
   return (
-    <div>
+    <div className="content">
       <h1>{recipe?.title}</h1>
       <p>
         {
           recipe?.tags.map((tag) => (
             <React.Fragment key={tag.id}>
-              <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+              <Link to={`/tags/${tag.id}`} className="tag">#{tag.name}</Link>
               {" "}
             </React.Fragment>
           ))

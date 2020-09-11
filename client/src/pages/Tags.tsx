@@ -11,14 +11,14 @@ function Tags() {
     })();
   }, []);
   return (
-    <div>
+    <div className="content">
       <h1>見つける</h1>
       <dl>
         {
           tags?.map((tag) => (
             <React.Fragment key={tag.id}>
               <dt>
-                <Link to={`/tags/${tag.id}`}>#{tag.name}</Link>
+                <Link to={`/tags/${tag.id}`} className="tag">#{tag.name}</Link>
               </dt>
             </React.Fragment>
           ))

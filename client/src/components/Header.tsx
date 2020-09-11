@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <div>
+    <div className="header">
       <Link to="/">みんなのレシピ</Link>
       {' | '}
       <Link to="/tags">見つける</Link>
+      {' | '}
+      ログイン
     </div>
   );
 }
