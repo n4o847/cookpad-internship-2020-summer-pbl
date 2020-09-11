@@ -45,6 +45,13 @@ users = []
   えび
   ひとで
   くりおね
+  いるか
+  さめ
+  えい
+  めんだこ
+  くまのみ
+  はぜ
+  さんご
 ].each do |name|
   users << User.create!(
     name: name,
@@ -74,7 +81,7 @@ end
   omatsuri_okonomiyaki.png     お好み焼き
   food_syougayaki.png          生姜焼き
   food_spaghetti_carbonara.png カルボナーラ
-].each_slice(2).to_a).sample(20).each do |adjective, (filename, name)|
+].each_slice(2).to_a).sample(40).each do |adjective, (filename, name)|
   title = adjective + name
   user = users.sample
   image = Image.create!(
